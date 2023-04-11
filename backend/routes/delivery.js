@@ -1,9 +1,9 @@
 import express from "express";
 import delivery from "../models/delivery.js";
 
-const router = express.Router();
+const deliveryRouter = express.Router();
 
-router.route("/add").post((req,res)=>{
+deliveryRouter.route("/add").post((req,res)=>{
     
 
     //body 
@@ -46,7 +46,7 @@ router.route("/").get((req,res)=>{//not sure
 })
 
 
-router.route("/update/:id").put(async(req,res)=>{
+deliveryRouter.route("/update/:id").put(async(req,res)=>{
     let delid=req.params.id;
     const{ uid,contactname,address,province,phone,price,time} =req.body;
 
@@ -73,7 +73,7 @@ router.route("/update/:id").put(async(req,res)=>{
 })
 
 
-router.route("/delete/:id").delete(async(req,res)=>{
+deliveryRouter.route("/delete/:id").delete(async(req,res)=>{
     let delid =req.params.id;
 
     await delivery.findByIdAndDelete(delid)
@@ -87,7 +87,7 @@ router.route("/delete/:id").delete(async(req,res)=>{
 })
 
 //get only one users data
-router.route("/get/:id").get(async (req,res) =>{
+deliveryRouter.route("/get/:id").get(async (req,res) =>{
     let delid = req.params.id;
     const deli=await delivery.findById(delid)
       .then((deli)=>{
@@ -98,4 +98,4 @@ router.route("/get/:id").get(async (req,res) =>{
     }   )
 })
 
-export default  router;
+export default  deliveryRouter;
