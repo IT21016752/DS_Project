@@ -13,10 +13,9 @@ app.use(express.json({ limit: "20mb" }));
 app.get('/', (req, res) => {
     res.send('Server is running');
 })
-const deliveryRouter = required("./routes/delivery.js");
 
 http://Localhost:8090/delivery
-app.use("/delivery",deliveryRouter);
+app.use("/delivery",delivery);
 
 app.listen(PORT, () => {
     logger.info("Server has started and running on port " + PORT);
