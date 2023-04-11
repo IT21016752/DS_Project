@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config.js";
 import logger from "./utilities/logger.js";
 import connectDatabase from "./config/database.js";
-
+import delivery from "./routes/delivery.js";
 const app = express();
 const PORT = process.env.PORT || 8090;
 
