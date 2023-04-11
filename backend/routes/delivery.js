@@ -36,7 +36,7 @@ deliveryRouter.route("/add").post((req,res)=>{
 })
 
 
-router.route("/").get((req,res)=>{//not sure
+deliveryRouter.route("/").get((req,res)=>{
 
     delivery.find().then((deliverys)=>{
         res.json(deliverys)
