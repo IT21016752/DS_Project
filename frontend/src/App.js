@@ -1,12 +1,17 @@
+import React from 'react';
 import './styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddItem from './pages/ItemManagement/AddItem.js';
+import Header from './pages/Header.js';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/additems" element={<AddItem />} />
+        <Route element={<Header />}>
+          <Route path="/" />
+          <Route path="/additems" element={<AddItem />} />
+        </Route>
       </Routes>
     </Router>
   );
