@@ -8,7 +8,7 @@ deliveryRouter.route("/add").post((req,res)=>{
 
     //body 
     const uid = Number(req.body.uid);
-    const contactname= req.body.contactname;
+    const contactName= req.body.contactName;
     const address= req.body.address;
     const province =req.body.province;
     const phone =req.body.phone;
@@ -18,7 +18,7 @@ deliveryRouter.route("/add").post((req,res)=>{
     const newDelivery = new delivery({
 
         uid,
-        contactname,
+        contactName,
         address,
         province,
         phone,
@@ -48,11 +48,11 @@ deliveryRouter.route("/").get((req,res)=>{//not sure
 
 deliveryRouter.route("/update/:id").put(async(req,res)=>{
     let delid=req.params.id;
-    const{ uid,contactname,address,province,phone,price,time} =req.body;
+    const{ uid,contactName,address,province,phone,price,time} =req.body;
 
     const updateDelivery ={
         uid,
-        contactname,
+        contactName,
         address,
         province,
         phone,
@@ -62,7 +62,7 @@ deliveryRouter.route("/update/:id").put(async(req,res)=>{
 
     const update = await delivery.findByIdAndUpdate(delid,updateDelivery)
     .then(()=>{
-        res.status(200).send({status:"delivery information updated",deli:update})
+        res.status(200).send({status:"delivery information updated"})
     }).catch((err)=>{
         console.log(err);
         res.status(500).send({status: "Error with updating data",error:err.message});
