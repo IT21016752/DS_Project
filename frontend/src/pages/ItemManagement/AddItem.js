@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../../styles/itemStyles.css'
 import axios from 'axios';
 
-export default function AddItem() {
+function AddItem() {
 
   const [itemName, setName] = useState("");
   const [itemPrice, setPrice] = useState("");
@@ -49,3 +49,5 @@ export default function AddItem() {
     </div>
   )
 }
+
+export default AddItem;
