@@ -16,7 +16,7 @@ function App() {
           <Route path="/additems" element={<AddItem />} />
           <Route path="/allitems" element={<AllItems />} />
           <Route path="/AddDelInfo" element={<AddDeliveryInfo />} />
-          <Route path="/" exact component={<AllDelInfo />} />
+          <Route path="/AllDelInfo" element={<AllDelInfo />} />
           <Route path="/displayitems" element={<DisplayItems />} />
 
         </Route>
