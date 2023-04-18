@@ -1,5 +1,5 @@
 import express from "express";
-import payment from "../models/payment";
+import payment from "../models/payment.js";
 
 const payRouter = express.Router();
 
@@ -15,7 +15,7 @@ payRouter.route("/add").post((req,res)=>{
     const cvc =Number(req.body.cvc);
     const pStatus=req.body.pStatus;
 
-    const newPayment = new Payment({
+    const newPayment = new payment({
 
         userId,
         name,
