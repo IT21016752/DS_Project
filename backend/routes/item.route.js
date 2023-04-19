@@ -1,5 +1,6 @@
 import express from "express";
 import Item from "../models/item.js";
+//import cloudinary from "../utilities/uploadImage.js";
 
 const itemRouter = express.Router();
 
@@ -7,11 +8,22 @@ itemRouter.route("/add").post((req,res)=>{
 
     const itemName = req.body.itemName;
     const itemPrice = Number(req.body.itemPrice);
+    const itemImage = req.body.itemImage;
 
     const newItem =  new Item({
         itemName,
-        itemPrice
+        itemPrice,
+        itemImage: {
+            public_id: result.public_id,
+            url: result.secure_url
+        }
     })
+
+    // const result = await cloudinary.UploadStream.upload(itemImage, {
+    //     folder: item,
+    //     width:300,
+    //     crop: "scale"
+    // })
 
     newItem.save().then(()=>{
         res.json("Item added successfully")
