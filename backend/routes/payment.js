@@ -15,7 +15,7 @@ payRouter.route("/add").post((req,res)=>{
     const cvc =Number(req.body.cvc);
     const pStatus=req.body.pStatus;
 
-    const newPayment = new Payment({
+    const newPayment = new payment({
 
         userId,
         name,
