@@ -7,6 +7,8 @@ import Header from './pages/Header.js';
 import AllItems from './pages/ItemManagement/AllItems.js';
 import DisplayItems from './pages/ItemManagement/DisplayItems';
 import AllDelInfo from './pages/DeliveryManagement/AlldelInfo';
+import AddPayInfo from './pages/PaymentManagement/AddPayInfo';
+
 function App() {
   return (
     <Router>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/AddDelInfo" element={<AddDeliveryInfo />} />
           <Route path="/AllDelInfo" element={<AllDelInfo />} />
           <Route path="/displayitems" element={<DisplayItems />} />
+          <Route path="/AddPayInfo" element={<AddPayInfo/>}/>
 
         </Route>
       </Routes>
