@@ -29,14 +29,14 @@ import '../../styles/itemStyles.css'
 //function to get one item
 function getOneItem(did) {
     axios.get("http://localhost:8091/delivery/get/" + did).then((res) => {
-        setid(res.data.delivery._id);
-        setuid(res.data.delivery.uid);
-        setName(res.data.delivery.contactName);
-        setAddress(res.data.delivery.address);
-        setProvince(res.data.delivery.province);
-        setPhone(res.data.delivery.phone);
-        setPrice(res.data.delivery.price);
-        setTime(res.data.delivery.time);
+        setid(res.data.deli._id);
+        setuid(res.data.deli.uid);
+        setName(res.data.deli.contactName);
+        setAddress(res.data.deli.address);
+        setProvince(res.data.deli.province);
+        setPhone(res.data.deli.phone);
+        setPrice(res.data.deli.price);
+        setTime(res.data.deli.time);
 
     }).catch((err) => {
         alert(err.message);
@@ -101,22 +101,22 @@ function deleteItem(ID){
                     <tbody>
                         {delivery.map(delivery => (
                             <tr>
-                                <td>{delivery._ID}</td>
+                                <td>{delivery._id}</td>
                                 <td>{delivery.uid}</td>
                                 <td>{delivery.contactName}</td>
                                 <td>{delivery.address}</td>
                                 <td>{delivery.province}</td>
                                 <td>{delivery.phone}</td>
                                 <td>{delivery.price}</td>
-                                <td>{delivery.Time}</td>
+                                <td>{delivery.time}</td>
 
                                 <td>
                                     <button type="button" class="btn btn-success m-3 mt-0 mb-0" onClick={() => {
-                                        getOneItem(delivery._ID);
+                                        getOneItem(delivery._id);
                                         showUpdateBox();
                                     }}>Update</button>
                                     <button type="button" class="btn btn-danger"onClick={() => {
-                                        deleteItem(delivery._ID);
+                                        deleteItem(delivery._id);
                                     }}>Delete</button>
                                 </td>
                             </tr>
