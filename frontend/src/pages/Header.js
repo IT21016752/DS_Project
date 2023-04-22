@@ -34,6 +34,7 @@ function Header() {
 
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><a className="dropdown-item" href="/AddPayInfo">Payment</a></li>
+                                    <li><a className="dropdown-item" href="/AllPayments">Payment</a></li>
                                 </ul>
                             </li>
                             <li className="nav-item">

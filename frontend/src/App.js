@@ -8,6 +8,8 @@ import AllItems from './pages/ItemManagement/AllItems.js';
 import DisplayItems from './pages/ItemManagement/DisplayItems';
 import AllDelInfo from './pages/DeliveryManagement/AlldelInfo';
 import AddPayInfo from './pages/PaymentManagement/AddPayInfo';
+import AllPayments from './pages/PaymentManagement/AllPayments';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route path="/AllDelInfo" element={<AllDelInfo />} />
           <Route path="/displayitems" element={<DisplayItems />} />
           <Route path="/AddPayInfo" element={<AddPayInfo/>}/>
+          <Route path="/AllPayments" element={<AllPayments/>}/>
 
         </Route>
       </Routes>
