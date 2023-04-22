@@ -101,4 +101,4 @@ payRouter.route("/get/:id").get(async (req,res) =>{
     }   )
 })
 
-export default  payRouter;
+export default payRouter;
