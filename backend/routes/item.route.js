@@ -75,4 +75,17 @@ itemRouter.route("/get/:id").get(async (req,res) => {
     })
 })
 
+itemRouter.get('/search/:itemName', async (req, res) => {
+    const { itemName } = req.params;
+    try {
+      const items = await Item.find({
+        itemName: { $regex: new RegExp(itemName, 'i') },
+      });
+      res.json(items);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  });
+
 export default itemRouter;

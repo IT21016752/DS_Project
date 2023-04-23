@@ -5,7 +5,9 @@ import '../../styles/itemStyles.css'
 function DisplayItems() {
 
     const [items, setItems] = useState([]);
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState('');
+    const [searchTerm, setSearchTerm] = useState('')
+    const [searchResults, setSearchResults] = useState([]);
 
     //function to display all the items
     useEffect(() => {
@@ -19,20 +21,54 @@ function DisplayItems() {
         getItems();
     }, [])
 
+    //Search items
+    const searchItems = async (e) => {
+
+        e.preventDefault()
+
+        axios.get(`http://localhost:8091/item/search/${searchTerm}`).then((res) => {
+            setSearchResults(res.data)
+        }).catch((err) => {
+            console.log(err)
+        })
+    };
+
     return (
         <>
+            <br></br>
+            <form className="d-flex" role="search" onSubmit={searchItems}>
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {
+                    setSearchTerm(e.target.value)
+                }} />
+            </form>
+            <br></br>
+            {/* Displaying search items */}
+            {searchResults.map((item) => (
+                <div class="row">
+                <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px" }}>
+                    <img src={item.url} style={{ width: "14rem", height: "14rem", textAlign: "center" }} class="card-img-top" alt="..."></img>
+                    <div class="card-body">
+                        {/* <h5 class="card-title">Item ID: {item._id}</h5> */}
+                        <h5 class="card-text">Item Name: {item.itemName}</h5>
+                        <h6 class="card-text">Item Price: {item.itemPrice}</h6>
+                        <button type="button" class="btn btn-success">Add to cart</button>
+                    </div>
+                </div>
+                </div>
+            ))}
             < div class="container text-center" >
+                <h3>Our Items Available for You</h3>
+                <br></br>
                 <div class="row">
                     {items.map(item => (
-
                         <div class="col-12 col-md-6 col-lg-4" >
-                            <div class="card" style={{ width: "18rem", height: "24rem" }}>
-                                <img src={item.url} style={{ width: "14rem", height: "14rem"}} class="card-img-top" alt="..."></img>
+                            <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px" }}>
+                                <img src={item.url} style={{ width: "14rem", height: "14rem", textAlign:"center", display:"block"}} class="card-img-top" alt="..."></img>
                                 <div class="card-body">
                                     {/* <h5 class="card-title">Item ID: {item._id}</h5> */}
                                     <h5 class="card-text">Item Name: {item.itemName}</h5>
                                     <h6 class="card-text">Item Price: {item.itemPrice}</h6>
-                                    <a href="#" class="btn btn-primary">Add to cart</a>
+                                    <button type="button" class="btn btn-success">Add to cart</button>
                                 </div>
                             </div>
                         </div>
@@ -40,28 +76,6 @@ function DisplayItems() {
                     ))}
                 </div>
             </div >
-
-            {/* <div class="container shadow rounded">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Product ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {items.map(item => (
-                            <tr>
-                                <td>{item._id}</td>
-                                <td>{item.itemName}</td>
-                                <td>{item.itemPrice}</td>
-                                <td><img src={item.url} /></td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div> */}
         </>
     )
 }

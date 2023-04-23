@@ -80,7 +80,7 @@ function AllItems() {
                                     <h6 class="card-title">Item ID: {item._id}</h6>
                                     <h6 class="card-text">Item Name: {item.itemName}</h6>
                                     <h6 class="card-text">Item Price: {item.itemPrice}</h6>
-                                    <button type="button" class="btn btn-success m-3 mt-0 mb-0" onClick={() => {
+                                    <button type="button" class="btn btn-warning m-3 mt-0 mb-0" onClick={() => {
                                         getOneItem(item._id);
                                         showUpdateBox();
                                     }}>Update</button>
