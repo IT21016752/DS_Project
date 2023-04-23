@@ -8,15 +8,12 @@ itemRouter.route("/add").post((req,res)=>{
 
     const itemName = req.body.itemName;
     const itemPrice = Number(req.body.itemPrice);
-    const itemImage = req.body.itemImage;
+    const url = req.body.url;
 
     const newItem =  new Item({
         itemName,
         itemPrice,
-        itemImage: {
-            public_id: result.public_id,
-            url: result.secure_url
-        }
+        url,
     })
 
     // const result = await cloudinary.UploadStream.upload(itemImage, {

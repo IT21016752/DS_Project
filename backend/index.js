@@ -6,6 +6,7 @@ import connectDatabase from "./config/database.js";
 import deliveryRouter from "./routes/delivery.js";
 import itemRoute from "./routes/item.route.js";
 import payRouter from "./routes/payment.js";
+import uploadImage from "./uploadimage.js"
 
 const app = express();
 const PORT = process.env.PORT || 8091;
@@ -35,4 +36,12 @@ app.use("/payment", payRouter);
 app.listen(PORT, () => {
     logger.info("Server has started and running on port " + PORT);
     connectDatabase();
+})
+
+app.post("/uploadImage", (req, res) => {
+    uploadImage(req.body.image).then((url) => {
+        res.send(url)
+    }).catch((err) => {
+        res.status(500).send(err)
+    })
 })
