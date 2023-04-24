@@ -45,8 +45,8 @@ function DisplayItems() {
             {/* Displaying search items */}
             {searchResults.map((item) => (
                 
-                <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px" }}>
-                    <img src={item.url} style={{ width: "14rem", height: "14rem", textAlign: "center" }} class="card-img-top" alt="..."></img>
+                <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px", boxShadow: "1px 2px 3px 4px rgba(20,20,20,0.4)"}}>
+                    <img src={item.url} style={{ width: "12rem", height: "14rem", margin: '0px auto'}} class="card-img-top" alt="..."></img>
                     <div class="card-body">
                         {/* <h5 class="card-title">Item ID: {item._id}</h5> */}
                         <h5 class="card-text">Item Name: {item.itemName}</h5>
@@ -63,8 +63,8 @@ function DisplayItems() {
                 <div class="row">
                     {items.map(item => (
                         <div class="col-12 col-md-6 col-lg-4" >
-                            <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px" }}>
-                                <img src={item.url} style={{ width: "14rem", height: "14rem", textAlign:"center", display:"block"}} class="card-img-top" alt="..."></img>
+                            <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px", boxShadow: "1px 2px 3px 4px rgba(20,20,20,0.4)"}}>
+                                <img src={item.url} style={{ width: "12rem", height: "14rem", margin: '0px auto'}} class="card-img-top" alt="..."></img>
                                 <div class="card-body">
                                     {/* <h5 class="card-title">Item ID: {item._id}</h5> */}
                                     <h5 class="card-text">Item Name: {item.itemName}</h5>

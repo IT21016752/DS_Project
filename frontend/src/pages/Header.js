@@ -45,6 +45,9 @@ function Header() {
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                             <button className="btn btn-outline-success" type="submit">Search</button>
                         </form> */}
+                        <form className="d-flex">
+                            <button className="btn btn-light" type="submit"><a href="/Login">Signup / Login</a></button>
+                        </form>
                     </div>
                 </div>
             </nav>
