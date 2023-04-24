@@ -7,6 +7,7 @@ import deliveryRouter from "./routes/delivery.js";
 import itemRoute from "./routes/item.route.js";
 import payRouter from "./routes/payment.js";
 import uploadImage from "./uploadimage.js"
+import userRouter from "./routes/user.route.js";
 
 const app = express();
 const PORT = process.env.PORT || 8091;
@@ -32,6 +33,8 @@ app.use("/delivery",deliveryRouter);
 app.use("/item", itemRoute);
 
 app.use("/payment", payRouter);
+
+app.use("/user", userRouter);
 
 app.listen(PORT, () => {
     logger.info("Server has started and running on port " + PORT);

@@ -9,7 +9,8 @@ import DisplayItems from './pages/ItemManagement/DisplayItems';
 import AllDelInfo from './pages/DeliveryManagement/AlldelInfo';
 import AddPayInfo from './pages/PaymentManagement/AddPayInfo';
 import AllPayments from './pages/PaymentManagement/AllPayments';
-
+import Login from './pages/UserManagement/login';
+import Signup from './pages/UserManagement/signup';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
           <Route path="/displayitems" element={<DisplayItems />} />
           <Route path="/AddPayInfo" element={<AddPayInfo/>}/>
           <Route path="/AllPayments" element={<AllPayments/>}/>
-
+          <Route path="/Login" element={<Login/>}/>
+          <Route path="/Signup" element={<Signup/>}/>
         </Route>
       </Routes>
     </Router>

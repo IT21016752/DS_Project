@@ -1,9 +1,9 @@
 import express from "express";
 import Item from "../models/item.js";
-//import cloudinary from "../utilities/uploadImage.js";
 
 const itemRouter = express.Router();
 
+//Add items
 itemRouter.route("/add").post((req,res)=>{
 
     const itemName = req.body.itemName;
@@ -16,12 +16,6 @@ itemRouter.route("/add").post((req,res)=>{
         url,
     })
 
-    // const result = await cloudinary.UploadStream.upload(itemImage, {
-    //     folder: item,
-    //     width:300,
-    //     crop: "scale"
-    // })
-
     newItem.save().then(()=>{
         res.json("Item added successfully")
     }).catch((err)=>{
@@ -29,6 +23,7 @@ itemRouter.route("/add").post((req,res)=>{
     })
 })
 
+//get items
 itemRouter.route("/").get((req,res)=>{
     Item.find().then((items)=>{
         res.json(items)
@@ -37,6 +32,7 @@ itemRouter.route("/").get((req,res)=>{
     })
 })
 
+//update item
 itemRouter.route("/update/:id").put(async (req, res) => {
     let itemID = req.params.id;
     const {itemName, itemPrice} = req.body;
@@ -54,6 +50,7 @@ itemRouter.route("/update/:id").put(async (req, res) => {
     })
 })
 
+//delete item
 itemRouter.route("/delete/:id").delete(async (req,res) => {
     let itemID = req.params.id;
 
@@ -65,6 +62,7 @@ itemRouter.route("/delete/:id").delete(async (req,res) => {
     })
 })
 
+//get a single item
 itemRouter.route("/get/:id").get(async (req,res) => {
     let itemID = req.params.id;
     await Item.findById(itemID).then((item) => {
@@ -75,6 +73,7 @@ itemRouter.route("/get/:id").get(async (req,res) => {
     })
 })
 
+//search item
 itemRouter.get('/search/:itemName', async (req, res) => {
     const { itemName } = req.params;
     try {

@@ -44,7 +44,7 @@ function DisplayItems() {
             <br></br>
             {/* Displaying search items */}
             {searchResults.map((item) => (
-                <div class="row">
+                
                 <div class="card" style={{ width: "18rem", height: "24rem", marginBottom: "50px" }}>
                     <img src={item.url} style={{ width: "14rem", height: "14rem", textAlign: "center" }} class="card-img-top" alt="..."></img>
                     <div class="card-body">
@@ -54,10 +54,11 @@ function DisplayItems() {
                         <button type="button" class="btn btn-success">Add to cart</button>
                     </div>
                 </div>
-                </div>
             ))}
+
+            {/* Display all items */}
             < div class="container text-center" >
-                <h3>Our Items Available for You</h3>
+                <h3>HERBALS Products</h3>
                 <br></br>
                 <div class="row">
                     {items.map(item => (
