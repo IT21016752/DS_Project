@@ -37,7 +37,8 @@ function DisplayItems() {
         <>
             <br></br>
             <form className="d-flex" role="search" onSubmit={searchItems}>
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" onChange={(e) => {
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" style={{width:"20%"}} 
+                onChange={(e) => {
                     setSearchTerm(e.target.value)
                 }} />
             </form>
